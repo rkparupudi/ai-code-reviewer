@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Code Reviewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔍 AI Code Reviewer</h1>
+      <p>Paste your Java or Node.js code for an instant AI-powered review</p>
+    </header>
+
+    <div class="input-section">
+      <div class="controls">
+        <select id="language">
+          <option value="java">Java</option>
+          <option value="javascript">Node.js / JavaScript</option>
+        </select>
+        <button id="reviewBtn" onclick="submitReview()">
+          Review Code
+        </button>
+        <button onclick="clearAll()">Clear</button>
+      </div>
+
+      <textarea
+        id="codeInput"
+        placeholder="Paste your Java or Node.js code here..."
+        spellcheck="false"
+      ></textarea>
+    </div>
+
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Analysing your code...</p>
+    </div>
+
+    <div id="results" class="results hidden">
+      <div class="score-section">
+        <div id="scoreCard" class="score-card">
+          <div id="scoreValue" class="score-value"></div>
+          <div class="score-label">Code Score</div>
+        </div>
+        <div id="summary" class="summary"></div>
+      </div>
+
+      <div id="issuesSection" class="section">
+        <h2>Issues Found</h2>
+        <div id="issuesList"></div>
+      </div>
+
+      <div id="positivesSection" class="section">
+        <h2>✅ What's Good</h2>
+        <ul id="positivesList"></ul>
+      </div>
+
+      <div id="refactoredSection" class="section hidden">
+        <h2>💡 Suggested Fix</h2>
+        <pre id="refactoredCode"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
